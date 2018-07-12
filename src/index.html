@@ -93,19 +93,19 @@
                     <div class="item">
                         <label>学费区间：</label>
                         <div class="value">
-                            <input type="text" value="" disabled id="tuition1">
+                            <input type="text" value="" readonly id="tuition1">
                         </div>
                     </div>
                     <div class="item">
                         <label>生活费区间：</label>
                         <div class="value">
-                            <input type="text" value="" disabled id="alimoney1">
+                            <input type="text" value="" readonly id="alimoney1">
                         </div>
                     </div>
                     <div class="item count">
                         <label>合计：</label>
                         <div class="value">
-                            <input type="text" value="" id="totoalMoney1" disabled>
+                            <input type="text" value="" id="totoalMoney1" readonly>
                         </div>
                     </div>
                 </div>
@@ -119,19 +119,19 @@
                     <div class="item">
                         <label>学费区间：</label>
                         <div class="value">
-                            <input type="text" value="" id="tuition2" disabled>
+                            <input type="text" value="" id="tuition2" readonly>
                         </div>
                     </div>
                     <div class="item">
                         <label>生活费区间：</label>
                         <div class="value">
-                            <input type="text" value="" id="alimoney2" disabled>
+                            <input type="text" value="" id="alimoney2" readonly>
                         </div>
                     </div>
                     <div class="item count">
                         <label>合计：</label>
                         <div class="value">
-                            <input type="text" value="" id="totoalMoney2" disabled>
+                            <input type="text" value="" id="totoalMoney2" readonly>
                         </div>
                     </div>
                 </div>
@@ -159,20 +159,20 @@
                     <div class="item">
                         <label style="padding-top: 22px;">学费区间：</label>
                         <div class="value">
-                            <input type="text" value="" id="tuition41" disabled>
-                            <input type="text" value="" id="tuition42" disabled style="margin-top:10px; ">
+                            <input type="text" value="" id="tuition41" readonly>
+                            <input type="text" value="" id="tuition42" readonly style="margin-top:10px; ">
                         </div>
                     </div>
                     <div class="item">
                         <label>生活费区间：</label>
                         <div class="value">
-                            <input type="text" value="" id='alimoney4' disabled>
+                            <input type="text" value="" id='alimoney4' readonly>
                         </div>
                     </div>
                     <div class="item count">
                         <label>合计：</label>
                         <div class="value">
-                            <input type="text" id="totoalMoney4" value="" disabled>
+                            <input type="text" id="totoalMoney4" value="" readonly>
                         </div>
                     </div>
                 </div>
@@ -181,13 +181,13 @@
                     <div class="item">
                         <label style="width: 121px">学费+生活费区间：</label>
                         <div class="value">
-                            <input type="text" class="totoalMoney5" value="" disabled>
+                            <input type="text" class="totoalMoney5" value="" readonly>
                         </div>
                     </div>
                     <div class="item count">
                         <label style="width: 121px">合计：</label>
                         <div class="value">
-                            <input type="text" class="totoalMoney5" value="" disabled>
+                            <input type="text" class="totoalMoney5" value="" readonly>
                         </div>
                     </div>
                     <p class="info">*欧洲公立大学免学费，只收取注册费</p>
@@ -391,7 +391,7 @@
                     }
                 },
                 afterRender: function () {
-                    $.fn.fullpage.setAllowScrolling(false);
+                    // $.fn.fullpage.setAllowScrolling(false);
                 }
             });
 
