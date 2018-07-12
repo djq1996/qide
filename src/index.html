@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>留学费用计算器--启德教育</title>
+    <meta name="Keywords" content="留学费用计算, 启德平价留学服务推荐" />
+    <meta name="Description" content="启德推出留学费用计算器，提前查看留学费用选择适合的留学方案" />
+    <link rel="stylesheet" href="css/jquery.fullPage.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="fullpage">
+        <!-- 第一屏 -->
+        <div class="section section1 active" id="section1">
+            <div class="content" id="">
+                <div class="company-info fix">
+                    <img class="logo" src="images/logo.png" alt="">
+                    <div class="iphone">
+                        <img src="images/iphone.png" alt=""> 400-1012-223
+                    </div>
+                </div>
+                <div class="form">
+                    <div class="item">
+                        <label for="countries">意向留学国家/地区：</label>
+                        <select name="countries" id="countries">
+                            <option value="0">美国</option>
+                            <option value="1">加拿大</option>
+                            <option value="2">英国</option>
+                            <option value="3">德国</option>
+                            <option value="4">法国</option>
+                            <option value="5">意大利</option>
+                            <option value="6">荷兰</option>
+                            <option value="7">瑞士</option>
+                            <option value="8">西班牙</option>
+                            <option value="9">澳洲</option>
+                            <option value="10">新西兰</option>
+                            <option value="11">新加坡</option>
+                            <option value="12">马来西亚</option>
+                            <option value="13">日本</option>
+                            <option value="14">韩国</option>
+                            <option value="15">香港</option>
+                            <option value="16">澳门</option>
+                        </select>
+                        <img src="images/arrow_show.png" width="13px" alt="">
+                    </div>
+                    <div class="item">
+                        <label for="hope">意向申请阶段：</label>
+                        <select name="hope" id="hope">
+                            <option data-index='0' value="1">高中</option>
+                            <option data-index='1' value="1">本科预科</option>
+                            <option data-index='2' value="1">硕士预科</option>
+                            <option data-index='3' value="2">本科</option>
+                            <option data-index='4' value="3">硕士</option>
+                        </select>
+                        <img src="images/arrow_show.png" width="13px" alt="">
+                    </div>
+                    <div class="item">
+                        <label for="tel">您的联系方式：</label>
+                        <input type="tel" class="defaultVal" name="phone" id="telephone" text="手机号码" value="手机号码" submit>
+                    </div>
+
+                </div>
+                <div class="btn" id="btnToView">
+                    <button type="submit">
+                        查看您的留学费用清单 >>
+                    </button>
+                    <img class="icon" src="images/icon.png" width="40px" alt="">
+                </div>
+                <div class="down">
+                    <img src="images/arrow_down.png" width="28px" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- 第二屏 -->
+        <div class="section section2 " id="section2">
+            <div class="content">
+                <div class="head">
+                    <img src="images/bg_section2_title.png" alt="">
+                </div>
+                <div class="title">
+                    <span id="school-name"></span>账单明细
+                </div>
+                <!-- 无专业，高商 - 有价格和生活费明细-->
+                <div class="form_first type fix" id="type1">
+                    <div class="item">
+                        <label>学费区间：</label>
+                        <div class="value">
+                            <input type="text" value="" disabled id="tuition1">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <label>生活费区间：</label>
+                        <div class="value">
+                            <input type="text" value="" disabled id="alimoney1">
+                        </div>
+                    </div>
+                    <div class="item count">
+                        <label>合计：</label>
+                        <div class="value">
+                            <input type="text" value="" id="totoalMoney1" disabled>
+                        </div>
+                    </div>
+                </div>
+                <!-- 有专业，价格一样的 -->
+                <div class="form_first type fix" id="type2">
+                    <p class="info-up">
+                        此费用区间包括的专业有：
+                        <br/>
+                        <span id="typeName2"></span>
+                    </p>
+                    <div class="item">
+                        <label>学费区间：</label>
+                        <div class="value">
+                            <input type="text" value="" id="tuition2" disabled>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <label>生活费区间：</label>
+                        <div class="value">
+                            <input type="text" value="" id="alimoney2" disabled>
+                        </div>
+                    </div>
+                    <div class="item count">
+                        <label>合计：</label>
+                        <div class="value">
+                            <input type="text" value="" id="totoalMoney2" disabled>
+                        </div>
+                    </div>
+                </div>
+                <!-- 有专业，价格不一样的 -->
+                <div class="form_second type fix" id="type3">
+                    <div class="form">
+                        <div class="tb-head fix">
+                            <div class="item item1">专业</div>
+                            <div class="item item2">学费区间</div>
+                            <div class="item item3">生活费区间</div>
+                            <div class="item item4">合计费用区间</div>
+                        </div>
+                        <div id="typeContent3">
+                            <!-- <div class="tb-body fix">
+                                <div class="item item1">商科</div>
+                                <div class="item item2">9 - 25万</div>
+                                <div class="item item3">3 - 17万</div>
+                                <div class="item item4">12 - 42万</div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- 无专业 高商，公立 -有价格和生活费明细-->
+                <div class="form_first type fix" id="type4">
+                    <div class="item">
+                        <label style="padding-top: 22px;">学费区间：</label>
+                        <div class="value">
+                            <input type="text" value="" id="tuition41" disabled>
+                            <input type="text" value="" id="tuition42" disabled style="margin-top:10px; ">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <label>生活费区间：</label>
+                        <div class="value">
+                            <input type="text" value="" id='alimoney4' disabled>
+                        </div>
+                    </div>
+                    <div class="item count">
+                        <label>合计：</label>
+                        <div class="value">
+                            <input type="text" id="totoalMoney4" value="" disabled>
+                        </div>
+                    </div>
+                </div>
+                <!-- 无专业，学费生活费区间 -->
+                <div class="form_first type fix" id="type5">
+                    <div class="item">
+                        <label style="width: 121px">学费+生活费区间：</label>
+                        <div class="value">
+                            <input type="text" class="totoalMoney5" value="" disabled>
+                        </div>
+                    </div>
+                    <div class="item count">
+                        <label style="width: 121px">合计：</label>
+                        <div class="value">
+                            <input type="text" class="totoalMoney5" value="" disabled>
+                        </div>
+                    </div>
+                    <p class="info">*欧洲公立大学免学费，只收取注册费</p>
+                </div>
+
+                <p class="describe">
+                    *其实各个留学国家不同院校、不同专业的学费不同，不同地区的生活费用和优惠政策也不同。启德留学可以为您提供更多准确的费用信息，避免您的信息闭塞或者被错误信息误导。
+                </p>
+                <div class="btn scroll-next">
+                    <p>
+                        怎样让留学费用省一半 >>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- 第三屏 -->
+        <div class="section section3 " id="section3">
+            <div class="content">
+                <div class="head">
+                    <img src="images/bg_section3.png" alt="">
+                </div>
+                <ul>
+                    <li>
+                        <img class="icon" src="images/icon3_1.png" alt="">
+                        <div class="txt">
+                            <p class="title">轻松去留学</p>
+                            <p class="describe">挑战全年更低价，万元高额奖学金，只为够优秀的你。</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img class="icon" src="images/icon3_2.png" alt="">
+                        <div class="txt">
+                            <p class="title">快速去留学</p>
+                            <p class="describe">上千所全球优质院校虚位以待，现在申请，马上成行！</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img class="icon" src="images/icon3_3.png" alt="">
+                        <div class="txt">
+                            <p class="title">平价去留学</p>
+                            <p class="describe">帮您定位高性价比留学方案，总有一款适合你！</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img class="icon" src="images/icon3_4.png" alt="">
+                        <div class="txt">
+                            <p class="title">增值去留学</p>
+                            <p class="describe">留学就业移民一站通，助您省心省力去留学！</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img class="icon" src="images/icon3_5.png" alt="">
+                        <div class="txt">
+                            <p class="title">精准去留学</p>
+                            <p class="describe">在万千方案中优中选优，为您定制专属留学方案！</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img class="icon" src="images/icon3_6.png" alt="">
+                        <div class="txt">
+                            <p class="title">成功去留学</p>
+                            <p class="describe">启德，值得信赖的国际教育机构!</p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="btn scroll-next">
+                    <p>
+                        启德教你省钱妙招 >>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- 第四屏 -->
+        <div class="section section4 " id="section4">
+            <div class="content">
+                <div class="head">
+                    <img src="images/bg_section4_title.png" alt="">
+                </div>
+                <ul class="fix">
+                    <a href="http://ml.eic.org.cn/Special/as_famous_school_study_m" target="_blank">
+                        <li class="marr">
+                            <img class="icon" src="images/item_2.png" alt="">
+                            <p class="describe">新马泰0元购</p>
+                        </li>
+                    </a>
+                    <a href="http://ml.eic.org.cn/Special/Europe_free_tuition_m" target="_blank">
+                        <li class="marr">
+                            <img class="icon" src="images/item_3.png" alt="">
+                            <p class="describe">欧洲公立留学
+                                <br> 0学费
+                            </p>
+                        </li>
+                    </a>
+                    <a href="http://ml.eic.org.cn/Special/uk_service_upgrade_m" target="_blank">
+                        <li>
+                            <img class="icon" src="images/item_4.png" alt="">
+                            <p class="describe">英国服务价格
+                                <br> 标准化
+                            </p>
+                        </li>
+                    </a>
+                    <a href="http://ml.eic.org.cn/Special/ca_3th_celebration_m" target="_blank">
+                        <li class="marr">
+                            <img class="icon" src="images/item_5.png" alt="">
+                            <p class="describe">加拿大
+                                <br>三周年庆典
+                            </p>
+                        </li>
+                    </a>
+                    <a href="http://ml.eic.org.cn/Special/us_application_analysis_m" target="_blank">
+                        <li class="marr">
+                            <img class="icon" src="images/item_6.png" alt="">
+                            <p class="describe">美国留学
+                                <br>综合申请指南
+                            </p>
+                        </li>
+                    </a>
+                    <a href="http://ml.eic.org.cn/Special/au_aboard_service_m" target="_blank">
+                        <li>
+                            <img class="icon" src="images/item_7.png" alt="">
+                            <p class="describe">澳洲
+                                <br>境外服务中心 </p>
+                        </li>
+                    </a>
+                </ul>
+                <div class="btn" id="top">
+                    <p>
+                        重新测试 >>
+                    </p>
+                </div>
+                <p class="info">
+                    Copyright © 2003-2018 广东启德教育服务有限公司
+                    <br> www.eic.org.cn All Rights Reserved
+                    <br> 京ICP证110879号 京ICP备14062493号-1 京公网安备110105009096
+                    <br>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="http://cdn.eic.org.cn/js/jquery-core-1.x.js"></script>
+    <script src="http://cdn.eic.org.cn/js/form.js"></script>
+    <!-- <script src="http://cdn.eic.org.cn/js/mobile_validate.js"></script> -->
+    <script src="js/jquery.fullPage.min.js"></script>
+    <script src="js/info.js"></script>
+    <script>
+        window.iid = "all_fee_calculator";
+
+        $(function () {
+            var _data = countries[0],
+                _type, _index;
+            $(".fullpage").fullpage({
+                sectionsColor: ['#101737', '#101737', '#101737', '#101737'],
+                afterLoad: function (anchorLink, index) {
+                    if (index == 2) {
+                        _type = $('#hope option:selected').val()
+                        _index = $('#hope option:selected').data('index')
+                        console.log(_type, _index, _data, _data.education[_index]);
+                        $('.type').hide();
+                        $('#school-name').text(_data.countries + _data.education[_index].name)
+                        if (_type == 1) {
+                            $('#tuition1').val(_data.education[_index].tuition)
+                            $('#alimoney1').val(_data.education[_index].alimoney)
+                            $('#totoalMoney1').val(_data.education[_index].totoalMoney)
+                        }
+                        if (_type == 2) {
+                            var str = '';
+                            for (let i = 0; i < _data.education[_index].professional.length; i++) {
+                                str += _data.education[_index].professional[i].name + '、';
+                            }
+                            str = str.slice(0, -1)
+                            $('#typeName2').text(str)
+                            $('#tuition2').val(_data.education[_index].professional[0].tuition)
+                            $('#alimoney2').val(_data.education[_index].professional[0].alimoney)
+                            $('#totoalMoney2').val(_data.education[_index].professional[0].totoalMoney)
+                        }
+                        if (_type == 3) {
+                            var html = '';
+                            for (let i = 0; i < _data.education[_index].professional.length; i++) {
+                                html += '<div class="tb-body fix">'+
+                                            '<div class="item item1">'+ _data.education[_index].professional[i].name +'</div>'+
+                                            '<div class="item item2">'+ _data.education[_index].professional[i].tuition +'</div>'+
+                                            '<div class="item item3">'+ _data.education[_index].professional[i].alimoney +'</div>'+
+                                            '<div class="item item4">'+ _data.education[_index].professional[i].totoalMoney +'</div>'+
+                                        '</div>\n';
+                            }
+                            $('#typeContent3').html(html)
+                        }
+                        if (_type == 4) {
+                            $('#tuition41').val(_data.education[_index].tuition1)
+                            $('#tuition42').val(_data.education[_index].tuition2)
+                            $('#alimoney4').val(_data.education[_index].alimoney)
+                            $('#totoalMoney4').val(_data.education[_index].totoalMoney)
+                        }
+                        if (_type == 5) {
+                            $('.totoalMoney5').val(_data.education[_index].totoalMoney)
+                        }
+                        $('#type' + _type).show();
+
+                    }
+                },
+                afterRender: function () {
+                    // $.fn.fullpage.setAllowScrolling(false);
+                }
+            });
+
+            $("#btnToView").click(function () {
+                var hope = $('#hope option:selected').val();
+                if (!hope) {
+                    alert("请选择意向申请阶段");
+                    return;
+                }
+                $.fn.fullpage.moveSectionDown();
+            });
+
+
+            $('#countries').on('change', function () {
+                var val = $('#countries option:selected').val();
+                var optionStr = '';
+                _data = countries[val]
+                console.log(val, _data);
+                for (let i = 0; i < _data.education.length; i++) {
+                    optionStr += '<option data-index="' + i + '" value="' + _data.education[i].type +
+                        '">' + _data.education[i].name +
+                        '</option>\n'
+                }
+                $('#hope').html(optionStr);
+            });
+            $('#top').click(function () {
+                $.fn.fullpage.moveTo(1, 1)
+            })
+            $(".scroll-next").click(function () {
+                $.fn.fullpage.moveSectionDown();
+            });
+            $(".defaultVal").bind({
+                focus: function () {
+                    if (this.value == this.defaultValue) {
+                        this.value = "";
+                    }
+                },
+                blur: function () {
+                    if (this.value == "") {
+                        this.value = this.defaultValue;
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
