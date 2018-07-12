@@ -20,7 +20,7 @@
     <div class="fullpage">
         <!-- 第一屏 -->
         <div class="section section1 active" id="section1">
-            <div class="content" id="">
+            <div class="content" id="form">
                 <div class="company-info fix">
                     <img class="logo" src="images/logo.png" alt="">
                     <div class="iphone">
@@ -64,7 +64,7 @@
                     </div>
                     <div class="item">
                         <label for="tel">您的联系方式：</label>
-                        <input type="tel" class="defaultVal" name="phone" id="telephone" text="手机号码" value="手机号码" submit>
+                        <input type="tel" class="defaultVal" name="phone" id="telephone" valid="phone" text="手机号码" value="手机号码"  required submit>
                     </div>
 
                 </div>
@@ -327,9 +327,11 @@
             </div>
         </div>
     </div>
-    <script src="http://cdn.eic.org.cn/js/jquery-core-1.x.js"></script>
-    <script src="http://cdn.eic.org.cn/js/form.js"></script>
+    <script src="js/jq.js"></script>
+    <!-- <script src="http://cdn.eic.org.cn/js/jquery-core-1.x.js"></script> -->
+    <!-- <script src="http://cdn.eic.org.cn/js/form.js"></script> -->
     <!-- <script src="http://cdn.eic.org.cn/js/mobile_validate.js"></script> -->
+    <!-- <script src="http://tracking.eic.org.cn/Scripts/Tracking.js"></script><script type="text/javascript" src="http://cdn.eic.org.cn/js/tongji.js"></script> -->
     <script src="js/jquery.fullPage.min.js"></script>
     <script src="js/info.js"></script>
     <script>
@@ -399,6 +401,11 @@
                     alert("请选择意向申请阶段");
                     return;
                 }
+                // var tel = $('#telephone').val();
+                // if(!(/^1\d{10}$/.test(tel))){
+                //     alert('请输入正确电话号码')
+                //     return;
+                // }
                 $.fn.fullpage.moveSectionDown();
             });
 
