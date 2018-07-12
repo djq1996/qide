@@ -219,6 +219,7 @@ hgroup {
     width: 90%;
     /* position: absolute; */
     /* bottom: 2%; */
+    margin: 0 auto;
     padding-top: 8%;
     text-align: center;
 }
@@ -407,7 +408,9 @@ hgroup {
     width: 100%;
 }
 
-
+.section3 ul {
+    padding-top: 2%;
+}
 
 .section3 li {
     overflow: hidden;
@@ -436,7 +439,7 @@ hgroup {
 
 .section3 .btn {
     width: 57%;
-    margin: 9% auto 0;
+    margin: 5% auto 0;
     border: #03f7f5 1px solid;
     color: #03f7f5;
     padding: 12px 16px;
